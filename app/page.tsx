@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Searchbar from '@/components/Searchbar';
+import HeroCarousel from '@/components/HeroCarousel';
 
 const Home = () => {
   return (
@@ -22,6 +23,8 @@ const Home = () => {
             </p>
             <Searchbar />
           </div>
+
+          <HeroCarousel />
         </div>
       </section>
     </>

@@ -1,3 +1,7 @@
+'use client';
+
+import { FormEvent, useState } from 'react';
+
 const Searchbar = () => {
   return (
     <form className="flex flex-wrap gap-4 mt-12">

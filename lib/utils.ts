@@ -37,8 +37,13 @@ export function extractCurrency(element: any) {
 }
 
 // Extracts description from two possible elements from amazon
-export function extractDescription(element: any) {
-  const selectors = ['.a-unordered-list .a-list-item', '.a-expander-content p'];
+export function extractDescription($: any) {
+  // these are possible elements holding description of the product
+  const selectors = [
+    '.a-unordered-list .a-list-item',
+    '.a-expander-content p',
+    // Add more selectors here if needed
+  ];
 
   for (const selector of selectors) {
     const elements = $(selector);
@@ -50,6 +55,9 @@ export function extractDescription(element: any) {
       return textContent;
     }
   }
+
+  // If no matching elements were found, return an empty string
+  return '';
 }
 
 export function getHighestPrice(priceList: PriceHistoryItem[]) {

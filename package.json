@@ -12,7 +12,6 @@
     "@headlessui/react": "^1.7.17",
     "axios": "^1.5.1",
     "cheerio": "^1.0.0-rc.12",
-<<<<<<< HEAD
     "mongoose": "^7.5.3",
     "next": "latest",
     "nodemailer": "^6.9.5",
@@ -30,24 +29,5 @@
     "postcss": "latest",
     "tailwindcss": "latest",
     "typescript": "latest"
-=======
-    "mongoose": "^8.2.0",
-    "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-responsive-carousel": "^3.2.23"
-  },
-  "devDependencies": {
-    "@types/jquery": "^3.5.29",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
->>>>>>> 5085a9b7df8502517563722c3e7b516ae0702e3f
   }
 }

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { Product } from '@/types';
-=======
-import { Product } from '@/types/types';
->>>>>>> 5085a9b7df8502517563722c3e7b516ae0702e3f
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

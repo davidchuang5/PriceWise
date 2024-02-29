@@ -3,16 +3,9 @@ import Searchbar from '@/components/Searchbar';
 import HeroCarousel from '@/components/HeroCarousel';
 import { getAllProducts } from '@/lib/actions';
 import ProductCard from '@/components/ProductCard';
-<<<<<<< HEAD
 
 const Home = async () => {
   const allProducts = await getAllProducts();
-=======
-
-const Home = async () => {
-  const allProducts = await getAllProducts();
-
->>>>>>> 5085a9b7df8502517563722c3e7b516ae0702e3f
   return (
     <>
       <section className="px-6 md:px-20 py-24 ">

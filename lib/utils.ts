@@ -90,3 +90,4 @@ export function getAveragePrice(priceList: PriceHistoryItem[]) {
 
   return averagePrice;
 }
+

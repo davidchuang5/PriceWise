@@ -48,3 +48,13 @@ export async function scrapeAndStoreProduct(productURL: string) {
     }
   }
 }
+
+export async function getAllProducts() {
+  try {
+    connectToDB();
+    const allProducts = await Product.find();
+    return allProducts;
+  } catch (error) {
+    console.log(error);
+  }
+}

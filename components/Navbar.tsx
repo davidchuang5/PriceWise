@@ -16,6 +16,7 @@ const Navbar = () => {
           <p className="nav-logo">
             {' '}
             Price<span className="text-green-dark">Check</span>
+            <span className="small-text"> (Beta Version)</span>
           </p>
         </Link>
         <div className="flex items-center gap-5">

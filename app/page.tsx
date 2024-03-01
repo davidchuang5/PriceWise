@@ -17,7 +17,8 @@ const Home = async () => {
             </p>
             <h1 className="head-text">
               Unleash the Power of
-              <span className="text-green-dark"> PriceCheck</span>
+              <span className="text-green-dark"> PriceCheck</span>{' '}
+              <span className="small-text">(Beta Version)</span>
             </h1>
 
             <p className="mt-6">

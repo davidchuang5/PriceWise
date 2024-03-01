@@ -47,8 +47,7 @@ export function extractCurrency(element: any) {
 export function extractDescription($: any) {
   // these are possible elements holding description of the product
   const selectors = [
-    '.a-unordered-list .a-list-item',
-    '.a-expander-content p',
+    '#productDescription',
     // Add more selectors here if needed
   ];
 

@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import puppeteer from 'puppeteer';
 import { extractCurrency, extractDescription, extractPrice, getNumberOfRatings } from '../utils';
 
 export async function scrapeAmazonProduct(url: string) {
@@ -26,13 +27,36 @@ export async function scrapeAmazonProduct(url: string) {
   try {
     // Fetch the product page
     const response = await axios.get(url, options);
+    // const proxyUrl = `http://${username}-session-${session_id}:${password}@brd.superproxy.io:${port}`;
+    // const browser = await puppeteer.launch();
+    // const page = await browser.newPage();
+
+    // // Navigate to the Amazon product page
+    // await page.goto(url, { waitUntil: 'networkidle2' });
+
+    // // Extract the page content
+    // const content = await page.content();
+
+    const axiosResponse = response.data;
+    if (axiosResponse) {
+      console.log('working');
+    }
+    // Load the page content into Cheerio for parsing
     const $ = cheerio.load(response.data);
+
+    console.log('cheerio', $);
+    console.log('cheerio target test', $('#productTitle').text());
+    console.log(
+      'cheerio target test2',
+      $('.a-price.a-text-price.header-price.a-size-base.a-text-normal').text()
+    );
 
     // Extract the product title
     const title = $('#productTitle').text().trim();
     const currentPrice = extractPrice(
       $('.aok-offscreen'),
-      $('.a-price.a-text-price.header-price.a-size-base.a-text-normal')
+      $('.a-price.a-text-price.header-price.a-size-base.a-text-normal'),
+      $('.priceToPay span.a-price-whole')
     );
 
     const originalPrice = extractPrice(
@@ -45,7 +69,6 @@ export async function scrapeAmazonProduct(url: string) {
 
     const rating = $('#acrCustomerReviewText:first').text().trim();
     const stars = $('#averageCustomerReviews .a-size-base.a-color-base:first').text().trim();
-    console.log('stars', stars);
     const outOfStock =
       $('#availability span').text().trim().toLowerCase() === 'currently unavailable';
 
@@ -82,6 +105,7 @@ export async function scrapeAmazonProduct(url: string) {
     };
 
     console.log('data', data);
+
     return data;
   } catch (error: any) {
     console.log(error);

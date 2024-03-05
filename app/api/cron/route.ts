@@ -12,9 +12,11 @@ export const revalidate = 0;
 
 export async function GET(request: Request) {
   try {
-    connectToDB();
-
-    const products = await Product.find({});
+    const connection = await connectToDB();
+    let products;
+    if (connection) {
+      products = await Product.find({});
+    }
 
     if (!products) throw new Error('No product fetched');
 

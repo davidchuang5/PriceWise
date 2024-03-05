@@ -1,41 +1,24 @@
 'use server';
 
-import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { extractCurrency, extractDescription, extractPrice, getNumberOfRatings } from '../utils';
 
 export async function scrapeAmazonProduct(url: string) {
   if (!url) return;
 
-  // BrightData proxy configuration
-  const username = String(process.env.BRIGHT_DATA_USERNAME);
-  const password = String(process.env.BRIGHT_DATA_PASSWORD);
-  const port = 22225;
-  const session_id = (1000000 * Math.random()) | 0;
-
-  const options = {
-    auth: {
-      username: `${username}-session-${session_id}`,
-      password,
-    },
-    host: 'brd.superproxy.io',
-    port,
-    rejectUnauthorized: false,
-  };
   const pw = require('playwright');
 
   const SBR_CDP =
     'wss://brd-customer-hl_d9cc939f-zone-pricecheckscrape:xse09t0wedp1@brd.superproxy.io:9222';
 
+  const browser = await pw.chromium.connectOverCDP(SBR_CDP);
+  const page = await browser.newPage();
+  console.log(`Connected! Navigating to ${url}`);
+  await page.goto(url, { timeout: 60000 }); // 60 seconds alotted for function to run
+
+  const html = await page.content({ timeout: 60000 });
+  console.log(html);
   try {
-    const browser = await pw.chromium.connectOverCDP(SBR_CDP);
-    const page = await browser.newPage();
-    console.log(`Connected! Navigating to ${url}`);
-    await page.goto(url);
-
-    const html = await page.content();
-    console.log(html);
-
     // Load the page content into Cheerio for parsing
     const $ = cheerio.load(html);
 

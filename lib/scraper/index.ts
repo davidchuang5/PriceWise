@@ -79,7 +79,7 @@ export async function scrapeAmazonProduct(url: string) {
       image: imageUrls[0],
       title,
       currentPrice: Number(currentPrice),
-
+      originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
       discountRate: Number(discountRate),
       category: 'Amazon Price',

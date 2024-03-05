@@ -23,6 +23,9 @@ module.exports = {
         'white-100': '#F4F4F4',
         'white-200': '#EDF0F8',
         'black-100': '#3D4258',
+        'green-light': '#66FF99',
+        'green-mid': '#42A362',
+        'green-dark': '#225332',
         'neutral-black': '#23263B',
       },
       boxShadow: {

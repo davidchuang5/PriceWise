@@ -12,10 +12,11 @@ const Navbar = () => {
     <header className="w-full">
       <nav className="nav">
         <Link href="/" className="flex itmems-center gap-1">
-          <Image src="/assets/icons/logo.svg" width={27} height={27} alt="logo" />
+          <Image src="/assets/icons/pricetag.png" width={27} height={25} alt="logo" />
           <p className="nav-logo">
             {' '}
-            Price <span className="text-primary">Wise</span>
+            Price<span className="text-green-dark">Check</span>
+            <span className="small-text"> (Beta Version)</span>
           </p>
         </Link>
         <div className="flex items-center gap-5">
